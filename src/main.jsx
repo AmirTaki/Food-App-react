@@ -7,3 +7,9 @@ createRoot(document.getElementById('root')).render(
     <App />
   </StrictMode>,
 )
+
+
+/*
+https://api.spoonacular.com
+
+*/
