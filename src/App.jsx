@@ -5,15 +5,20 @@ import Nav from "./components/Nav"
 import './App.css'
 import Container from "./components/Container"
 import InnerContaienr from "./components/InnerContainer"
+import FoodDetails from "./components/FoodDetails"
 function App() {
   const [foodData, setFoodData] = useState([])
+  const [foodId, setFoodId] = useState("")
   return (
     <>
       <Nav />
       <Search foodData = {foodData}   setFoodData = {setFoodData}/>
       <Container>
         <InnerContaienr>
-          <FoodList foodData = {foodData} />
+          <FoodList foodData = {foodData} setFoodId = {setFoodId} />
+        </InnerContaienr>
+        <InnerContaienr>
+          <FoodDetails foodId = {foodId} />
         </InnerContaienr>
       </Container>
     </>
