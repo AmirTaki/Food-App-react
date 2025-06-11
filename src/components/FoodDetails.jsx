@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import styles from "./formdetails.module.css";
 
 export default function FoodDetails({foodId}) {
     const URL = `https://api.spoonacular.com/recipes/${foodId}/information`
@@ -15,13 +16,13 @@ export default function FoodDetails({foodId}) {
         }
         fetchFood()
     },[foodId])
-    console.log(food)
+
     return (
         <div>
-            <div>
-                <h1>{food.title}</h1>
-                <img src={food.image} alt="" />
-                <div>
+            <div className={styles.recipeCard}>
+                <h1 className = {styles.recipeName}>{food.title}</h1>
+                <img className= {styles.recipeImage}  src={food.image} alt="" />
+                <div className = {styles.recipeDetails}>
                     <span>
                         <strong>🕧{food.readyInMinutes} Minutes</strong>
                     </span>
@@ -29,19 +30,27 @@ export default function FoodDetails({foodId}) {
                         👪<strong>Serves {food.servings}</strong>
                     </span>
                     <span>
-                        {food.vegetarian ? "🥕Vegetrian" :"🍖Non-Vegetrian"}
+                        <strong>
+                            {food.vegetarian ? "🥕Vegetrian" :"🍖Non-Vegetrian"}
+                        </strong>
                     </span>
-                    <span>{food.vegan ? "🐮 Vegan" : "" } </span>
+                    <span>
+                        <strong>
+                            {food.vegan ? "🐮 Vegan" : "" }
+                        </strong> 
+                    </span>
                 </div>
                 <div>
                     💲<span>{food.pricePerServing/100} Per Serving</span>
                 </div>
-
-                <div>
-                    <h2>Instructions</h2>
-                    {isLoading === false &&  food.analyzedInstructions[0].steps.map((step)=>(
-                        <li>{step.step}</li>
-                    )) }
+                <h2>Instructions</h2>
+                <div className={styles.recipeInstructions}>
+                    <ol>
+                        {isLoading === false &&  food.analyzedInstructions[0].steps.map((step)=>(
+                            <li>{step.step}</li>
+                        )) }
+                    </ol>
+                 
                 </div>
             </div>
         </div>
