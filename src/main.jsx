@@ -10,6 +10,6 @@ createRoot(document.getElementById('root')).render(
 
 
 /*
-https://api.spoonacular.com
+https://spoonacular.com/
 
 */
