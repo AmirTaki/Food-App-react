@@ -13,8 +13,10 @@ export default function FoodDetails({foodId}) {
            const data = await responsive.json()
            setFood(data);
            setIsLoading(false);
+            console.log(data)
         }
         fetchFood()
+           
     },[foodId])
 
     return (
@@ -43,6 +45,14 @@ export default function FoodDetails({foodId}) {
                 <div>
                     💲<span>{food.pricePerServing/100} Per Serving</span>
                 </div>
+                <h2>Ingredients</h2>
+                {food.extendedIngredients.map((item)=>(
+                    <div>
+                        <img src={`https://spoonacular.com/cdn/ingredients_100x100/${item.image}`} alt="" />
+                        <h3>{item.name}</h3>
+                        <h3>{item.amount} {item.unit}</h3>
+                    </div>
+                ))}
                 <h2>Instructions</h2>
                 <div className={styles.recipeInstructions}>
                     <ol>
