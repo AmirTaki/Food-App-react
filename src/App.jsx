@@ -4,6 +4,7 @@ import FoodList from "./components/FoodList"
 import Nav from "./components/Nav"
 import './App.css'
 import Container from "./components/Container"
+import InnerContaienr from "./components/InnerContainer"
 function App() {
   const [foodData, setFoodData] = useState([])
   return (
@@ -11,7 +12,9 @@ function App() {
       <Nav />
       <Search foodData = {foodData}   setFoodData = {setFoodData}/>
       <Container>
-        <FoodList foodData = {foodData} />
+        <InnerContaienr>
+          <FoodList foodData = {foodData} />
+        </InnerContaienr>
       </Container>
     </>
   )
