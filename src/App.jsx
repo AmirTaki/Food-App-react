@@ -14,4 +14,3 @@ function App() {
 }
 
 export default App
-// https://www.youtube.com/watch?v=wzxPaPkZDQg&list=PLSsAz5wf2lkK_ekd0J__44KG6QoXetZza&index=51
