@@ -1,4 +1,4 @@
-import Item from "./item";
+import Item from "./item.jsx";
 
 export default function ItemList ({food, isLoading}) {
     return(
@@ -10,10 +10,6 @@ export default function ItemList ({food, isLoading}) {
                 food.extendedIngredients.map((item)=>(
                     <Item item = {item} />
             )))}
-            
-
-            
-        
         </div>
     )
 }
